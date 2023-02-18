@@ -1,12 +1,12 @@
 # **NOTE**
 # 1. Empty strings are truthy.
 
-- id: Kategorien
-  name: test
+- id: tab-cat
+  name: Kategorien
   fp: tab/category.html
   disabled: false
 
-- id: tab-test1
-  name: diasble-test
+- id: tab-tag
+  name: Tags
   fp: tab/test1.html
-  disabled: true
+  disabled: false
