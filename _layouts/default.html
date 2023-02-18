@@ -16,7 +16,7 @@
           {% for t in site.data.tabs %}
             <li class="tab {% if t.disabled %}disabled{% endif %}"><a href="#{{ t.id }}">{{ t.name }}</a></li>
           {% endfor %}
--->
+//-->
           </ul>
         </div>
       </nav>
@@ -28,7 +28,7 @@
       {% include {{ t.fp }} %}
     </div>
   {% endfor %}
--->
+//-->
     <div class="site-container" id="tab-main"> 
       <div class="wrapper">
         {{ content }}
