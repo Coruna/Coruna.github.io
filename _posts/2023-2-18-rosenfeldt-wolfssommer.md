@@ -11,3 +11,5 @@ bewertung: 5
 ---
 
 Text über das Buch {{page.buchtitel}} vom Autor {{page.autor_nn}}
+
+Dieses Buch hat eine Bewertung von {{page.bewertung}}
