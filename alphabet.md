@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Nach Alphabet
+permalink: /alphabet/
 ---
 
 #### Tagline
