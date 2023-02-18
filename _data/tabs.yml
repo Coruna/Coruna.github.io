@@ -1,9 +1,9 @@
 # **NOTE**
 # 1. Empty strings are truthy.
 
-- id: tab-test
+- id: Kategorien
   name: test
-  fp: tab/test.html
+  fp: category.html
   disabled: false
 
 - id: tab-test1
