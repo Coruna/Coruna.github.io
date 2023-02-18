@@ -3,8 +3,8 @@
 author: Coruna
 email: example@email.com
 
-head-title: Buchrezensionen
-title: Your blog
+head-title: Rezensionen # Browserheader
+title: Corunas Rezensionen
 
 baseurl: ""    # the subpath of your site, "/blog"
 url: ""
@@ -13,7 +13,7 @@ url: ""
 description: "I know that what I'm doing looks stupid, but I'm a big boy and really want to do this."
 
 favo: ""
-descrpt: ""
+descrpt: "Hier findet ihr meine Rezensionen"
 
 
 #
