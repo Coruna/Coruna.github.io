@@ -20,7 +20,11 @@ permalink: /bewertung/
 
   {% endfor %}
 
+stars: {{ stars }}<br>
+
 {% assign star_names = stars | strip | split:',' | sort %}
+
+Starnames: {{ star_names }} <br>
 
 <div class="post-category">
   {% for star in star_names %}
