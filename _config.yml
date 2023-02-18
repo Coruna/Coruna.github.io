@@ -12,7 +12,7 @@ url: ""
 # footer 
 description: "I know that what I'm doing looks stupid, but I'm a big boy and really want to do this."
 
-favo: ""
+favo: "Rezensionen everywhere"
 descrpt: "Hier findet ihr meine Rezensionen"
 
 
@@ -48,11 +48,11 @@ plugins: [jekyll-paginate, jekyll-last-modified-at, jemoji]
 
 # Color
 # All css class, see: http://materializecss.com/color.html
-header-color: "indigo lighten-1"
-head-theme-color: "#5c6bc0"     # MUST in hex format, may the same as header-color. This color is for android chrome browser.
+header-color: "brown darken-2"
+head-theme-color: "#5d4037"     # MUST in hex format, may the same as header-color. This color is for android chrome browser.
 
-footer-color: "indigo lighten-1"
-footer-button-color: "indigo lighten-2"
+footer-color: "brown darken-2"
+footer-button-color: "brown darken-3"
 footer-link-color: "red-text text-accent-1"
 
 share-button-color: "pink"
