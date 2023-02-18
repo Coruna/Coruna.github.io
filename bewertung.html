@@ -17,8 +17,8 @@ permalink: /bewertung/
     {% if post.bewertung != null %}
       {% assign star_array = star_array | push: post.bewertung | uniq %}
 
-      <% assign postArray = postArray | push: post.title %>
-      <% assign bewertungArray = bewertungArray | push: post.bewertung %>
+      {% assign postArray = postArray | push: post.title %}
+      {% assign bewertungArray = bewertungArray | push: post.bewertung %}
 
         {% case post.bewertung %}
           {% when 5 %}{% increment five %}     
@@ -31,11 +31,11 @@ permalink: /bewertung/
     {% endif %}
   {% endfor %}
         
-<% for item in bewertungArray %>
-  <% if item == '5' %>
+{% for item in bewertungArray %}
+  {% if item == '5' %}
     post: {{ postArray[forloop.index0] }} <br>
-  <% endif %>
-<% endfor %>
+  {% endif %}
+{% endfor %}
 
 <div class="post-category">
   {% for star in star_array %}
