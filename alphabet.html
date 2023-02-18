@@ -7,8 +7,7 @@ permalink: /alphabet/
 {% assign letters = "" | split: ',' %}
 
 {% for post in site.posts %}
-    {% assign letters = letters | push: post.autor_nn %}
-    und gepusht<br>
+    {% assign letters = letters | push: post.autor_nn | uniq %}
 {% endfor %}
 
 {% for letter in letters %}
@@ -16,4 +15,34 @@ permalink: /alphabet/
         Buchstabe: {{ letter | slice: 0, 1 }}<br>
     </div>
 {% endfor %}
+
+<div><style>button { margin-bottom: 10px; }</style>
+  <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
+  <button class="waves-effect waves-light btn" onClick="collapseAll();"><i class="mdi mdi-chevron-double-up left"></i>Collapse</button>
+</div>
+
+<div class="post-category">
+  {% for letter in letters %}
+    <a id="{{ letter }}" class="section scrollspy"></a>      <!-- TODO for position-->
+
+    <ul class="collapsible" data-collapsible="expandable">
+      <li>
+        <div class="collapsible-header active">
+          <span class="capitalize" style="font-size: 18px;">{{ letter }}</span>
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ site.categories[cate].size }}</span></a>
+        </div>
+
+        <div class="collapsible-body">
+          {% for post in site.categories[cate] %}{% if post.title != null %}
+          <ul>
+            <li>
+              {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </li>
+          </ul>
+          {% endif %}{% endfor %}
+        </div>
+      </li>
+    </ul>
+  {% endfor %}
+</div>
 
