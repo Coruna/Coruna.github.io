@@ -10,11 +10,15 @@ permalink: /bewertung/
 </div>
 
 {% assign star_array = "" | split: ',' %}
-{% assign star_counter = "" | split: ',' %}
+{% assign postArray = "" | split: ',' %}
+{% assign bewertungArray = "" | split: ',' %}
 
   {% for post in site.posts %}
     {% if post.bewertung != null %}
       {% assign star_array = star_array | push: post.bewertung | uniq %}
+
+      <% assign postArray = postArray | push: post.title %>
+      <% assign bewertungArray = bewertungArray | push: post.bewertung %>
 
         {% case post.bewertung %}
           {% when 5 %}{% increment five %}     
@@ -26,6 +30,12 @@ permalink: /bewertung/
 
     {% endif %}
   {% endfor %}
+        
+<% for item in bewertungArray %>
+  <% if item == '5' %>
+    post: {{ postArray[forloop.index0] }} <br>
+  <% endif %>
+<% endfor %>
 
 <div class="post-category">
   {% for star in star_array %}
@@ -35,16 +45,14 @@ permalink: /bewertung/
       <li>
         <div class="collapsible-header active">
           <span class="capitalize" style="font-size: 18px;">{{ star }} Sterne</span>
-          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">
-            
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">            
         {% case star %}
           {% when 5 %}{{ five }}     
           {% when 4 %}{{ four }}
           {% when 3 %}{{ three }}     
           {% when 2 %}{{ two }}
           {% when 1 %}{{ one }}
-        {% endcase %}
-            
+        {% endcase %}            
             </span></a>
         </div>
 
