@@ -1,0 +1,40 @@
+---
+layout: page
+title: Nach Bewertung
+permalink: /bewertung/
+---
+
+<div><style>button { margin-bottom: 10px; }</style>
+  <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
+  <button class="waves-effect waves-light btn" onClick="collapseAll();"><i class="mdi mdi-chevron-double-up left"></i>Collapse</button>
+</div>
+
+{% capture stars %}
+  {% for stern in post.bewertung %}{{ stern | first }}{% unless forloop.last %},{% endunless %}{% endfor %}
+{% endcapture %}
+{% assign star_names = stars | strip | split:',' | sort %}
+
+<div class="post-category">
+  {% for star in star_names %}
+    <a id="{{ star }}" class="section scrollspy"></a>      <!-- TODO for position-->
+
+    <ul class="collapsible" data-collapsible="expandable">
+      <li>
+        <div class="collapsible-header active">
+          <span class="capitalize" style="font-size: 18px;">{{ star }}</span>
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ post.bewertung[star].size }}</span></a>
+        </div>
+
+        <div class="collapsible-body">
+          {% for post in post.bewertung[star] %}{% if post.title != null %}
+          <ul>
+            <li>
+              {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </li>
+          </ul>
+          {% endif %}{% endfor %}
+       </div>
+      </li>
+    </ul>
+  {% endfor %}
+</div>
