@@ -5,10 +5,11 @@ permalink: /alphabet/
 ---
 
 {% assign topics_by_letter = 
-    site.posts| group_by_exp: "title", "post.title | slice: 0, 1" %}
+    site.posts| "post.title | slice: 0, 1" %}
 
 {% for letter in topics_by_letter %}
     <div>
         {{ letter.name }}
     </div>
 {% endfor %}
+
