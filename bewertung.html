@@ -19,7 +19,7 @@ permalink: /bewertung/
 
 {% case post.bewertung %}
   {% when "5" %}{% increment five %}     
-  {% when "4" %}{% increment four %}
+  {% when 4 %}{% increment four %}
   {% when "3" %}{% increment three %}     
   {% when "2" %}{% increment two %}
 {% endcase %}
@@ -31,6 +31,10 @@ permalink: /bewertung/
 {% assign highest_count = star_counter[0].size %}
 wert: {{ highest_count }}<br>
 andererWert; {{ four }}<br>
+
+{% for wert in star_counter %}
+hier: {{ wert }}<br>
+{% endfor %}
 
 
 <div class="post-category">
