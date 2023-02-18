@@ -11,8 +11,11 @@ layout: default
     <p class="grey-text">
       <i class="mdi mdi-calendar"></i>&nbsp;
       {% if page.date %}{{ page.date | date: "%b %-d, %Y" }}{% else %}unknown{% endif %}
-      &nbsp;&nbsp;<i class="mdi mdi-account-circle"></i>&nbsp;
+      <!--
+      &nbsp;&nbsp;
+      <i class="mdi mdi-account-circle"></i>&nbsp;
       {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}
+      //-->
       &nbsp;&nbsp;<i class="mdi mdi-label"></i>&nbsp;
       <span class="capitalize">
         {% if page.categories %}{% for category in page.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}
@@ -37,7 +40,9 @@ layout: default
       {{ content | toc_generate }}
     </article>
 
+    <!--
     {% include share.html %}
+//-->
 
   </div>
   </div>
