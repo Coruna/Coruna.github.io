@@ -18,6 +18,8 @@ permalink: /bewertung/
   {% for stern in post.bewertung %}{{ stern | first }}{% unless forloop.last %},{% endunless %}{% endfor %}
 {% endcapture %}
 
+stern: {{ stern }}
+
   {% endfor %}
 
 stars: {{ stars }}<br>
