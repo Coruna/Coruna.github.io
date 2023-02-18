@@ -12,6 +12,9 @@ permalink: /bewertung/
 {% assign star_array = "" | split: ',' %}
 {% assign postArray5 = "" | split: ',' %}
 {% assign postArray4 = "" | split: ',' %}
+{% assign postArray3 = "" | split: ',' %}
+{% assign postArray2 = "" | split: ',' %}
+{% assign postArray1 = "" | split: ',' %}
 
   {% for post in site.posts %}
     {% if post.bewertung != null %}
@@ -20,9 +23,9 @@ permalink: /bewertung/
         {% case post.bewertung %}
           {% when 5 %}{% increment five %}{% assign postArray5 = postArray5 | push: post %}    
           {% when 4 %}{% increment four %}{% assign postArray4 = postArray4 | push: post %}  
-          {% when 3 %}{% increment three %}     
-          {% when 2 %}{% increment two %}
-          {% when 1 %}{% increment one %}
+          {% when 3 %}{% increment three %}{% assign postArray3 = postArray3 | push: post %}       
+          {% when 2 %}{% increment two %}{% assign postArray2 = postArray2 | push: post %}  
+          {% when 1 %}{% increment one %}{% assign postArray1 = postArray1 | push: post %}  
         {% endcase %}
 
     {% endif %}
@@ -40,9 +43,9 @@ permalink: /bewertung/
         {% case star %}
           {% when 5 %}{{ five }}{% assign bewertungArray = postArray5 %}       
           {% when 4 %}{{ four }}{% assign bewertungArray = postArray4 %}  
-          {% when 3 %}{{ three }}     
-          {% when 2 %}{{ two }}
-          {% when 1 %}{{ one }}
+          {% when 3 %}{{ three }}{% assign bewertungArray = postArray3 %}      
+          {% when 2 %}{{ two }}{% assign bewertungArray = postArray2 %} 
+          {% when 1 %}{{ one }}{% assign bewertungArray = postArray1 %} 
         {% endcase %}            
             </span></a>
         </div>
