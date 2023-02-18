@@ -1,6 +1,11 @@
 # **NOTE**
 # 1. Empty strings are truthy.
 
+- id: tab-main
+  name: Start
+  fp: /
+  disabled: false
+
 - id: tab-cat
   name: Kategorien
   fp: tab/category.html
