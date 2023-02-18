@@ -21,11 +21,11 @@ permalink: /bewertung/
       {% assign star_array = star_array | push: post.bewertung | uniq %}
 
         {% case post.bewertung %}
-          {% when 5 %}{% increment five %}{% assign postArray5 = postArray5 | push: post %}    
-          {% when 4 %}{% increment four %}{% assign postArray4 = postArray4 | push: post %}  
-          {% when 3 %}{% increment three %}{% assign postArray3 = postArray3 | push: post %}       
-          {% when 2 %}{% increment two %}{% assign postArray2 = postArray2 | push: post %}  
-          {% when 1 %}{% increment one %}{% assign postArray1 = postArray1 | push: post %}  
+          {% when 5 %}{% capture _ %}{% increment five %}{% endcapture %}{% assign postArray5 = postArray5 | push: post %}    
+          {% when 4 %}{% capture _ %}{% increment four %}{% endcapture %}{% assign postArray4 = postArray4 | push: post %}  
+          {% when 3 %}{% capture _ %}{% increment three %}{% endcapture %}{% assign postArray3 = postArray3 | push: post %}       
+          {% when 2 %}{% capture _ %}{% increment two %}{% endcapture %}{% assign postArray2 = postArray2 | push: post %}  
+          {% when 1 %}{% capture _ %}{% increment one %}{% endcapture %}{% assign postArray1 = postArray1 | push: post %}  
         {% endcase %}
 
     {% endif %}
@@ -55,7 +55,7 @@ permalink: /bewertung/
           {% for item in bewertungArray %}{% if item.title != null %}
           <ul>
             <li>
-              {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+              {{ item.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
             </li>
           </ul>
           {% endif %}{% endfor %}
