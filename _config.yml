@@ -1,12 +1,9 @@
 # Site settings
 
-author: Yourname
+author: Coruna
 email: example@email.com
-twitter_username: twitter
-github_username:  github
-googleplus_username: google
 
-head-title: Your blog
+head-title: Buchrezensionen
 title: Your blog
 
 baseurl: ""    # the subpath of your site, "/blog"
@@ -15,8 +12,8 @@ url: ""
 # footer 
 description: "I know that what I'm doing looks stupid, but I'm a big boy and really want to do this."
 
-favo: "春梦随云散，飞花逐水流"
-descrpt: "“巧者劳而智者忧，无能者无所求，饱食而遨游，泛若不系之舟”  ——《南华经》"
+favo: ""
+descrpt: ""
 
 
 #
