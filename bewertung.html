@@ -32,7 +32,7 @@ permalink: /bewertung/
   {% endfor %}
         
 {% for item in bewertungArray %}
-  {% if item == '5' %}
+  {% if item == 5 %}
     post: {{ postArray[forloop.index0] }} <br>
   {% endif %}
 {% endfor %}
