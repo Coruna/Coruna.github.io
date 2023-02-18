@@ -9,24 +9,22 @@ permalink: /bewertung/
   <button class="waves-effect waves-light btn" onClick="collapseAll();"><i class="mdi mdi-chevron-double-up left"></i>Collapse</button>
 </div>
 
+{% assign star_array = "" | split: ',' %}
 
   {% for post in site.posts %}
 
+{% assign star_array = star_array | push: post.bewertung %}
+
 {{ post.title }} - {{ post.bewertung }}
-
-{% capture stars %}
-  {% for stern in post.bewertung %}{{ stern | first }}{% unless forloop.last %},{% endunless %}{% endfor %}
-{% endcapture %}
-
-stern: {{ stern }}
 
   {% endfor %}
 
-stars: {{ stars }}<br>
+{% for star in star_array %}
+  <br>Bewertung {{ star }}<br>
+{% endfor%}
 
-{% assign star_names = stars | strip | split:',' | sort %}
 
-Starnames: {{ star_names }} <br>
+
 
 <div class="post-category">
   {% for star in star_names %}
