@@ -35,6 +35,12 @@ layout: default
         {% endfor %}
       {% endif %}
     </div>
+    
+    {% if post.bewertung %}
+    <div>
+      <i class="post-tag mdi mdi-tag-multiple waves-effect waves-light"></i>Bewertung: {{ post.bewertung }}
+    </div>
+    {% endif %}
 
     <article class="post-content">
       {{ content | toc_generate }}
