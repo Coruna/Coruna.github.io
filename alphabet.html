@@ -8,7 +8,7 @@ permalink: /alphabet/
 
 {% for post in site.posts %}
 
-{% assign letters = letters | push: post.title | slice: 0, 1 | uniq %}
+{% assign letters = letters | push: post.autor_nn | slice: 0, 1 | uniq %}
 
 {% endfor %}
 
