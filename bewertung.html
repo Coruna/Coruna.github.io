@@ -10,19 +10,16 @@ permalink: /bewertung/
 </div>
 
 {% assign star_array = "" | split: ',' %}
-{% assign postArray = "" | split: ',' %}
-{% assign bewertungArray = "" | split: ',' %}
+{% assign postArray5 = "" | split: ',' %}
+{% assign postArray4 = "" | split: ',' %}
 
   {% for post in site.posts %}
     {% if post.bewertung != null %}
       {% assign star_array = star_array | push: post.bewertung | uniq %}
 
-      {% assign postArray = postArray | push: post %}
-      {% assign bewertungArray = bewertungArray | push: post.bewertung %}
-
         {% case post.bewertung %}
-          {% when 5 %}{% increment five %}     
-          {% when 4 %}{% increment four %}
+          {% when 5 %}{% increment five %}{% assign postArray5 = postArray5 | push: post %}    
+          {% when 4 %}{% increment four %}{% assign postArray4 = postArray4 | push: post %}  
           {% when 3 %}{% increment three %}     
           {% when 2 %}{% increment two %}
           {% when 1 %}{% increment one %}
@@ -41,8 +38,8 @@ permalink: /bewertung/
           <span class="capitalize" style="font-size: 18px;">{{ star }} Sterne</span>
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">            
         {% case star %}
-          {% when 5 %}{{ five }}     
-          {% when 4 %}{{ four }}
+          {% when 5 %}{{ five }}{% assign bewertungArray = postArray5 %}       
+          {% when 4 %}{{ four }}{% assign bewertungArray = postArray4 %}  
           {% when 3 %}{{ three }}     
           {% when 2 %}{{ two }}
           {% when 1 %}{{ one }}
@@ -52,10 +49,10 @@ permalink: /bewertung/
 
 
         <div class="collapsible-body">
-          {% for item in bewertungArray %}{% if postArray[forloop.index0].title != null %}
+          {% for item in bewertungArray %}{% if item.title != null %}
           <ul>
             <li>
-              {{ postArray[forloop.index0].date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ postArray[forloop.index0].url | prepend: site.baseurl }}">{{ postArray[forloop.index0].title }}</a>
+              {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
             </li>
           </ul>
           {% endif %}{% endfor %}
