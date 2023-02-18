@@ -13,7 +13,7 @@ permalink: /bewertung/
 
   {% for post in site.posts %}
 
-{% assign star_array = star_array | push: post.bewertung %}
+{% assign star_array = star_array | push: post.bewertung | uniq %}
 
 {{ post.title }} - {{ post.bewertung }}
 
@@ -27,7 +27,7 @@ permalink: /bewertung/
 
 
 <div class="post-category">
-  {% for star in star_names %}
+  {% for star in star_array %}
     <a id="{{ star }}" class="section scrollspy"></a>      <!-- TODO for position-->
 
     <ul class="collapsible" data-collapsible="expandable">
@@ -38,7 +38,7 @@ permalink: /bewertung/
         </div>
 
         <div class="collapsible-body">
-          {% for post in post.bewertung[star] %}{% if post.title != null %}
+          {% for star in post.bewertung[star] %}{% if post.title != null %}
           <ul>
             <li>
               {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
