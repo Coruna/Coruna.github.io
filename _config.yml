@@ -48,11 +48,11 @@ plugins: [jekyll-paginate, jekyll-last-modified-at, jemoji]
 
 # Color
 # All css class, see: http://materializecss.com/color.html
-header-color: "brown lighten-4"
-head-theme-color: "#d7ccc8"     # MUST in hex format, may the same as header-color. This color is for android chrome browser.
+header-color: "grey darken-1"
+head-theme-color: "#757575"     # MUST in hex format, may the same as header-color. This color is for android chrome browser.
 
-footer-color: "brown lighten-4"
-footer-button-color: "brown lighten-3"
+footer-color: "grey darken-1"
+footer-button-color: "grey darken-2"
 footer-link-color: "red-text text-accent-1"
 
 share-button-color: "pink"
