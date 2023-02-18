@@ -3,7 +3,7 @@
 
 - id: Kategorien
   name: test
-  fp: /category.html
+  fp: tab/category.html
   disabled: false
 
 - id: tab-test1
