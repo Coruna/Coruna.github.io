@@ -10,21 +10,12 @@ permalink: /bewertung/
 </div>
 
 {% assign star_array = "" | split: ',' %}
+{% assign star_counter = "" | split: ',' %}
 
   {% for post in site.posts %}
-
-{% assign star_array = star_array | push: post.bewertung | uniq %}
-
-{{ post.title }} - {{ post.bewertung }}
-
+    {% assign star_array = star_array | push: post.bewertung | uniq %}
+    {% assign star_counter= star_counter | push: post.bewertung %}
   {% endfor %}
-
-{% for star in star_array %}
-  <br>Bewertung {{ star }}<br>
-{% endfor%}
-
-
-
 
 <div class="post-category">
   {% for star in star_array %}
@@ -33,8 +24,8 @@ permalink: /bewertung/
     <ul class="collapsible" data-collapsible="expandable">
       <li>
         <div class="collapsible-header active">
-          <span class="capitalize" style="font-size: 18px;">{{ star }}</span>
-          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ post.bewertung[star].size }}</span></a>
+          <span class="capitalize" style="font-size: 18px;">{{ star }} Sterne</span>
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ star_counter[star] }}</span></a>
         </div>
 
         <div class="collapsible-body">
