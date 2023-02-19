@@ -7,8 +7,8 @@ permalink: /alphabet/
 {% assign letters = "" | split: ',' %}
 
 {% for post in site.posts %}
-    {% assign letters = letters | push: post.autor_nn | uniq | slice: 0, 1 %}
-    {% assign letters = letters | push: post.buchtitel| uniq %}
+    {% assign letters = letters | push: post.autor_nn | uniq %}
+    <!-- {% assign letters = letters | push: post.buchtitel| uniq %}-->
 {% endfor %}
 
 {% for letter in letters %}
@@ -33,9 +33,11 @@ permalink: /alphabet/
           <span class="capitalize" style="font-size: 18px;">{{ letter }}</span>
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ site.categories[cate].size }}</span></a>
         </div>
+          
+        {% assign sortedPosts = site.posts | sort: 'title' %}
 
         <div class="collapsible-body">
-          {% for post in site.categories[cate] %}{% if post.title != null %}
+          {% for post in sortedPosts %}{% if post.title != null %}
           <ul>
             <li>
               {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
