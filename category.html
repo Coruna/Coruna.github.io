@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Kategorie
+title: Nach Kategorie
 permalink: /category/
 ---
 
@@ -25,8 +25,10 @@ permalink: /category/
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ site.categories[cate].size }}</span></a>
         </div>
 
+        {% assign sortedPosts = site.categories[cate] | sort: 'title' %}
+        
         <div class="collapsible-body">
-          {% for post in site.categories[cate] %}{% if post.title != null %}
+          {% for post in sortedPosts %}{% if post.title != null %}
           <ul>
             <li>
               {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
