@@ -10,12 +10,9 @@ layout: default
 
     <p class="grey-text">
       <i class="mdi mdi-calendar"></i>&nbsp;
-      {% if page.date %}{{ page.date | date: "%b %-d, %Y" }}{% else %}unknown{% endif %}
-      <!--
-      &nbsp;&nbsp;
-      <i class="mdi mdi-account-circle"></i>&nbsp;
-      {% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}
-      //-->
+      {% if page.date %}{{ page.date | date: "%b %-d, %Y" }}{% else %}unknown{% endif %}            
+      {% if page.verlag %}&nbsp;&nbsp;<i class="mdi mdi-book"></i>&nbsp;{{ page.verlag }}{% else %}{{ page.verlag }}{% endif %}
+     
       &nbsp;&nbsp;<i class="mdi mdi-folder-multiple"></i>&nbsp;
       <span class="capitalize">
         {% if page.categories %}{% for category in page.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}
@@ -29,23 +26,15 @@ layout: default
       <h1 class="post-title">{{ page.title }}</h1>  
           {% if page.bewertung %}
             <div>
-              Bewertung: {{ page.bewertung }}&nbsp;<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
+             {% for i in (1..5) %}       
+                {% if i <= page.bewertung %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
+                {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
+                {% endif %}    
+             {% endfor %}
             </div>
           {% endif %}
     </div>
     
-    {% for i in (1..5) %}   
-    
-      {% if i <= page.bewertung %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
-
-      {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
-
-      {% endif %}
-    
-    {% endfor %}
-    
-
-
     <article class="post-content">
       {{ content | toc_generate }}
     </article>
