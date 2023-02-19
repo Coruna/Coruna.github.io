@@ -41,7 +41,7 @@ layout: default
       {{ content | toc_generate }}
     </article>
     
-      {% if page.tags != null %}
+      {% if page.tags != "" %}
         <i class="post-tag mdi mdi-tag-multiple waves-effect waves-light"></i>
         {% for tag in page.tags %}
         <span class="chip">{{ tag }}</span>
