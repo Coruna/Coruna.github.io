@@ -18,7 +18,7 @@ permalink: /bewertung/
 
   {% for post in site.posts %}
     {% if post.bewertung != null %}
-      {% assign star_array = star_array | push: post.bewertung | uniq | sort %}
+      {% assign star_array = star_array | push: post.bewertung | uniq | sort | reverse %}
 
         {% case post.bewertung %}
           {% when 5 %}{% capture _ %}{% increment five %}{% endcapture %}{% assign postArray5 = postArray5 | push: post %}    
@@ -50,7 +50,7 @@ permalink: /bewertung/
             </span></a>
         </div>
 
-        {% assign sortedPosts = bewertungArray | sort: 'title' | reverse %}
+        {% assign sortedPosts = bewertungArray | sort: 'title' %}
 
         <div class="collapsible-body">
           {% for item in sortedPosts %}{% if item.title != null %}
