@@ -12,7 +12,7 @@ permalink: /alphabet/
 {% for post in site.posts %}
     Autor:  {{ post.autor_nn }} <br>
     {% assign authors = authors | push: post.autor_nn %}
-    {% assign letter = post.autor_nn | slice -1,1 %}
+    {% assign letter = post.autor_nn | truncate: 1 %}
     Buchstabe: {{ letter }} <br> <hr>
     {% assign letters = letters | push: letter | uniq %}
 {% endfor %}
