@@ -5,21 +5,24 @@ permalink: /alphabet/
 ---
 
 {% assign letters = "" | split: ',' %}
+{% assign authors = "" | split: ',' %}
 
 {% for post in site.posts %}
     Autor:  {{ post.autor_nn }} <br>
-    {% assign letters = letters | push: {{ post.autor_nn | slice: 0, 1 }}| uniq %}
-    zugewiesen: {{ letters }}<br>
-    
-    <!-- {% assign letters = letters | push: post.buchtitel| uniq %}-->
+    {% assign authors = authors | push: post.autor_nn %}
+    {% assign letter = post.autor_nn | slice 0,1 %}
+    Buchstabe: {{ letter }}
+    {% assign letters = letters | push: letter | uniq %}
 {% endfor %}
 
+<!--
 {% for letter in letters %}
     <div>
         Name: {{ letter}}<br>
         Buchstabe: {{ letter | slice: 0, 1 }}<br>
     </div>
 {% endfor %}
+-->
 
 <div><style>button { margin-bottom: 10px; }</style>
   <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
