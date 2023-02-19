@@ -18,7 +18,7 @@ permalink: /bewertung/
 
   {% for post in site.posts %}
     {% if post.bewertung != null %}
-      {% assign star_array = star_array | push: post.bewertung | uniq %}
+      {% assign star_array = star_array | push: post.bewertung | uniq | sort %}
 
         {% case post.bewertung %}
           {% when 5 %}{% capture _ %}{% increment five %}{% endcapture %}{% assign postArray5 = postArray5 | push: post %}    
