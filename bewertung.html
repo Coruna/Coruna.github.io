@@ -50,9 +50,10 @@ permalink: /bewertung/
             </span></a>
         </div>
 
+        {% assign sortedPosts = bewertungArray | sort: 'title' | reverse %}
 
         <div class="collapsible-body">
-          {% for item in bewertungArray %}{% if item.title != null %}
+          {% for item in sortedPosts %}{% if item.title != null %}
           <ul>
             <li>
               {{ item.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
