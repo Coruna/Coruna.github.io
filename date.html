@@ -1,0 +1,74 @@
+---
+layout: page
+title: Nach Datum
+permalink: /date/
+---
+
+<div><style>button { margin-bottom: 10px; }</style>
+  <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
+  <button class="waves-effect waves-light btn" onClick="collapseAll();"><i class="mdi mdi-chevron-double-up left"></i>Collapse</button>
+</div>
+
+{% assign star_array = "" | split: ',' %}
+{% assign postArray5 = "" | split: ',' %}
+{% assign postArray4 = "" | split: ',' %}
+{% assign postArray3 = "" | split: ',' %}
+{% assign postArray2 = "" | split: ',' %}
+{% assign postArray1 = "" | split: ',' %}
+
+
+
+{% capture categories %}
+  {% for post in site.posts.date %}{{ c | first }}{% unless forloop.last %},{% endunless %}{% endfor %}
+{% endcapture %}
+{% assign category_names = categories | strip | split:',' | sort %}
+
+  {% for post in site.posts %}
+    {% if post.bewertung != null %}
+      {% assign star_array = star_array | push: post.bewertung | uniq | sort | reverse %}
+
+        {% case post.bewertung %}
+          {% when 5 %}{% capture _ %}{% increment five %}{% endcapture %}{% assign postArray5 = postArray5 | push: post %}    
+          {% when 4 %}{% capture _ %}{% increment four %}{% endcapture %}{% assign postArray4 = postArray4 | push: post %}  
+          {% when 3 %}{% capture _ %}{% increment three %}{% endcapture %}{% assign postArray3 = postArray3 | push: post %}       
+          {% when 2 %}{% capture _ %}{% increment two %}{% endcapture %}{% assign postArray2 = postArray2 | push: post %}  
+          {% when 1 %}{% capture _ %}{% increment one %}{% endcapture %}{% assign postArray1 = postArray1 | push: post %}  
+        {% endcase %}
+
+    {% endif %}
+  {% endfor %}
+        
+<div class="post-category">
+  {% for star in star_array %}
+    <a id="{{ star }}" class="section scrollspy"></a>      <!-- TODO for position-->
+
+    <ul class="collapsible" data-collapsible="expandable">
+      <li>
+        <div class="collapsible-header active">
+          <span class="capitalize" style="font-size: 18px;">{{ star }} Sterne</span>
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">            
+        {% case star %}
+          {% when 5 %}{{ five }}{% assign bewertungArray = postArray5 %}       
+          {% when 4 %}{{ four }}{% assign bewertungArray = postArray4 %}  
+          {% when 3 %}{{ three }}{% assign bewertungArray = postArray3 %}      
+          {% when 2 %}{{ two }}{% assign bewertungArray = postArray2 %} 
+          {% when 1 %}{{ one }}{% assign bewertungArray = postArray1 %} 
+        {% endcase %}            
+            </span></a>
+        </div>
+
+        {% assign sortedPosts = bewertungArray | sort: 'title' %}
+
+        <div class="collapsible-body">
+          {% for item in sortedPosts %}{% if item.title != null %}
+          <ul>
+            <li>
+              {{ item.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+            </li>
+          </ul>
+          {% endif %}{% endfor %}
+       </div>
+      </li>
+    </ul>
+  {% endfor %}
+</div>
