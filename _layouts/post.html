@@ -19,8 +19,10 @@ layout: default
         {% else %}unknown
         {% endif %}
       </span>
+      <!--
       &emsp;<i class="mdi mdi-refresh"></i>&nbsp;UPDATE: {% if page.update %}{{ page.update | date: "%b %-d, %Y" }}{% else %}{{ page.last_modified_at | date: "%b %-d, %Y" }}{% endif %}
-    </p>
+      -->
+      </p>
 
     <div class="post-header">
       <h1 class="post-title">{{ page.title }}</h1>  
@@ -39,7 +41,7 @@ layout: default
       {{ content | toc_generate }}
     </article>
     
-      {% if page.tags %}
+      {% if page.tags != null %}
         <i class="post-tag mdi mdi-tag-multiple waves-effect waves-light"></i>
         {% for tag in page.tags %}
         <span class="chip">{{ tag }}</span>
