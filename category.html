@@ -25,7 +25,7 @@ permalink: /category/
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ site.categories[cate].size }}</span></a>
         </div>
 
-        {% assign sortedPosts = site.categories[cate] | sort: 'title' %}
+        {% assign sortedPosts = site.categories[cate] | sort: 'title' | reverse %}
         
         <div class="collapsible-body">
           {% for post in sortedPosts %}{% if post.title != null %}
