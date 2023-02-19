@@ -6,12 +6,13 @@ permalink: /alphabet/
 
 {% assign letters = "" | split: ',' %}
 {% assign authors = "" | split: ',' %}
+{% assign letter = "" | split: ',' %}
 
 {% for post in site.posts %}
     Autor:  {{ post.autor_nn }} <br>
     {% assign authors = authors | push: post.autor_nn %}
-    {% assign letter = post.autor_nn | slice 0,1 %}
-    Buchstabe: {{ letter }}
+    {% assign letter = post.autor_nn | slice 0 %}
+    Buchstabe: {{ letter }} <br> <hr>
     {% assign letters = letters | push: letter | uniq %}
 {% endfor %}
 
