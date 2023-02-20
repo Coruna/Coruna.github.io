@@ -34,13 +34,16 @@ permalink: /date/
 
         
 <div class="post-category">
-  {% for star in star_array %}
-    <a id="{{ star }}" class="section scrollspy"></a>      <!-- TODO for position-->
+  {% for post in site.posts %}
+  {% assign currentdate = post.date | date: "%Y" %}
+  {% if currentdate != date %}
+  
+    <a id="y{{currentdate}}" class="section scrollspy"></a>      <!-- TODO for position-->
 
     <ul class="collapsible" data-collapsible="expandable">
       <li>
         <div class="collapsible-header">
-          <span class="capitalize" style="font-size: 18px;">{{ star }} Sterne</span>
+          <span class="capitalize" style="font-size: 18px;">{{ currentdate }}</span>
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">            
         {% case star %}
           {% when 5 %}{{ five }}{% assign bewertungArray = postArray5 %}       
@@ -51,17 +54,18 @@ permalink: /date/
         {% endcase %}            
             </span></a>
         </div>
-
-        {% assign sortedPosts = bewertungArray | sort: 'title' %}
-
+        
+        {% assign date = currentdate %} 
+  {% endif %}
+       
         <div class="collapsible-body">
-          {% for item in sortedPosts %}{% if item.title != null %}
+          {% if item.title != null %}
           <ul>
             <li>
               {{ item.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
             </li>
           </ul>
-          {% endif %}{% endfor %}
+          {% endif %}
        </div>
       </li>
     </ul>
