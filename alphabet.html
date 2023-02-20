@@ -24,7 +24,7 @@ permalink: /alphabet/
 <div class="post-category">
   {% for letter in letters %}
     
-    {% assign sortedPosts = site.posts | where_exp:"autor_nn","autor_nn | slice:0 == letter" | sort: 'title' %}
+    {% assign sortedPosts = site.posts | where_exp:"autor_nn","autor_nn == Mankell" | sort: 'title' %}
    
     <a id="{{ letter }}" class="section scrollspy"></a>      <!-- TODO for position-->
 
@@ -32,7 +32,7 @@ permalink: /alphabet/
       <li>
         <div class="collapsible-header active">
           <span class="capitalize" style="font-size: 18px;">{{ letter }}</span>
-          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ site.categories[cate].size }}</span></a>
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ sortedPosts.size }}</span></a>
         </div>
           
         
