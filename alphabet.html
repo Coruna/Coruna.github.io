@@ -11,7 +11,7 @@ permalink: /alphabet/
 <!-- Aufbau der benutzten Buchstaben -->
 {% for post in site.posts %}
     {% assign letter = post.autor_nn | slice:0 %}
-    {% assign letters = letters | push: letter | uniq %}
+    {% assign letters = letters | push: letter | uniq | sort %}
 {% endfor %}
 
 <div><style>button { margin-bottom: 10px; }</style>
@@ -26,12 +26,9 @@ permalink: /alphabet/
       
     {% for post in site.posts %}
         {% assign letterPost = post.autor_nn | slice:0 %}
-    
-        letterPost: {{ letterPost }} mit Autor: {{ post.autor_nn }}<br>
-        letter: {{ letter }}<br>
+
         {% if letterPost == letter %}
                 {% assign sortedPosts = sortedPosts | push: post %}
-                Füge hinzu: {{ post.autor_nn }} <br>
         {% endif %}
     {% endfor %}   
 
