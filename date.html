@@ -9,66 +9,52 @@ permalink: /date/
   <button class="waves-effect waves-light btn" onClick="collapseAll();"><i class="mdi mdi-chevron-double-up left"></i>Collapse</button>
 </div>
 
+{% assign years = "" | split: ',' %}
+{% assign yearPost = "" | split: ',' %}
+
+<!-- Aufbau der benutzten Jahre -->
 {% for post in site.posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
-    {% unless forloop.first %}</ul>{% endunless %}
-    <h1 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h1>
-    <ul>
-    {% assign date = currentdate %}
-  {% endif %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% if forloop.last %}</ul>{% endif %}
-{% endfor %}
-
-<hr>
-
-{% for post in site.posts %}
-  {% assign currentdate = post.date | date: "%Y" %}
-  {% if currentdate != date %}
-    <li id="y{{currentdate}}">{{ currentdate }}</li>
+    {% assign years = years | push: currentdate | uniq | sort %}
     {% assign date = currentdate %} 
   {% endif %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 
         
 <div class="post-category">
-  {% for post in site.posts %}
-  {% assign currentdate = post.date | date: "%Y" %}
-  {% if currentdate != date %}
+  {% for year in years %}
   
-    <a id="y{{currentdate}}" class="section scrollspy"></a>      <!-- TODO for position-->
+  {% assign sortedPosts = "" | split: ',' %}
+      
+    {% for post in site.posts %}
+        {% assign yearPost = post.date | date: "%Y" %}
+
+        {% if yearPost == year %}
+                {% assign sortedPosts = sortedPosts | push: post %}
+        {% endif %}
+    {% endfor %} 
+
+  
+    <a id="y{{ year }}" class="section scrollspy"></a>      <!-- TODO for position-->
 
     <ul class="collapsible" data-collapsible="expandable">
       <li>
         <div class="collapsible-header">
-          <span class="capitalize" style="font-size: 18px;">{{ currentdate }}</span>
-          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">            
-        {% case star %}
-          {% when 5 %}{{ five }}{% assign bewertungArray = postArray5 %}       
-          {% when 4 %}{{ four }}{% assign bewertungArray = postArray4 %}  
-          {% when 3 %}{{ three }}{% assign bewertungArray = postArray3 %}      
-          {% when 2 %}{{ two }}{% assign bewertungArray = postArray2 %} 
-          {% when 1 %}{{ one }}{% assign bewertungArray = postArray1 %} 
-        {% endcase %}            
-            </span></a>
-        </div>
-        
-        {% assign date = currentdate %} 
-  {% endif %}
-       
+          <span class="capitalize" style="font-size: 18px;">{{ year }}</span>
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ years.size }}</span></a>
+        </div>        
+
         <div class="collapsible-body">
-          {% if post.title != null %}
+          {% for post in sortedPosts %}{% if post.title != null %}
           <ul>
             <li>
               {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </li>
           </ul>
-          {% endif %}
-       </div>
-
-  {% endfor %}
+          {% endif %}{% endfor %}
+        </div>
       </li>
     </ul>
+  {% endfor %}
 </div>
