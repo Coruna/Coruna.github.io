@@ -10,21 +10,10 @@ permalink: /alphabet/
 {% assign letterCount = "" | split: ',' %}
 
 {% for post in site.posts %}
-    Autor:  {{ post.autor_nn }} <br>
     {% assign authors = authors | push: post.autor_nn %}
     {% assign letter = post.autor_nn | slice:0 %}
-    Buchstabe: {{ letter }} <br> <hr>
     {% assign letters = letters | push: letter | uniq %}
 {% endfor %}
-
-<!--
-{% for letter in letters %}
-    <div>
-        Name: {{ letter}}<br>
-        Buchstabe: {{ letter | slice: 0, 1 }}<br>
-    </div>
-{% endfor %}
--->
 
 <div><style>button { margin-bottom: 10px; }</style>
   <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
@@ -42,7 +31,7 @@ permalink: /alphabet/
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ site.categories[cate].size }}</span></a>
         </div>
           
-        {% assign sortedPosts = site.posts | sort: 'title' %}
+        {% assign sortedPosts = site.posts | where:"autor_nn","Mankell" | sort: 'title' %}
 
         <div class="collapsible-body">
           {% for post in sortedPosts %}{% if post.title != null %}
