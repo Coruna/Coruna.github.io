@@ -2,7 +2,7 @@
 layout: post
 title:  "Hans Rosenfeldt - Wolfssommer"
 categories: [buch,thriller]
-tags: [feministisch,Schweden]
+tags: [feministisch,schweden]
 autor_vn: Hans
 autor_nn: Rosenfeldt
 buchtitel: Wolfssommer
