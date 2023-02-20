@@ -59,10 +59,10 @@ permalink: /date/
   {% endif %}
        
         <div class="collapsible-body">
-          {% if item.title != null %}
+          {% if post.title != null %}
           <ul>
             <li>
-              {{ item.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+              {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </li>
           </ul>
           {% endif %}
