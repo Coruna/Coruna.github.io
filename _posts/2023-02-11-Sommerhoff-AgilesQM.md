@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Benedikt Sommerhoff et. al - Agiles Qualitätsmanagement"
-categories: [Sachbuch,Pocket]
+categories: [sachbuch,pocket]
 tags: []
 autor_vn: 
 autor_nn: Sommerhoff
