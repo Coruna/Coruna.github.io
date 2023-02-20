@@ -7,7 +7,6 @@ permalink: /alphabet/
 {% assign letters = "" | split: ',' %}
 {% assign letter = "" | split: ',' %}
 {% assign letterPost = "" | split: ',' %}
-{% assign sortedPosts = "" | split: ',' %}
 
 <!-- Aufbau der benutzten Buchstaben -->
 {% for post in site.posts %}
@@ -22,6 +21,8 @@ permalink: /alphabet/
 
 <div class="post-category">
   {% for letter in letters %}
+    
+    {% assign sortedPosts = "" | split: ',' %}
       
     {% for post in site.posts %}
         {% assign letterPost = post.autor_nn | slice:0 %}
@@ -30,7 +31,7 @@ permalink: /alphabet/
         letter: {{ letter }}<br>
         {% if letterPost == letter %}
                 {% assign sortedPosts = sortedPosts | push: post %}
-                Füge hinzu: {{ post.author_nn }} <br>
+                Füge hinzu: {{ post.autor_nn }} <br>
         {% endif %}
     {% endfor %}   
 
