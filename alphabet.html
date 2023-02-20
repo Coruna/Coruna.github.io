@@ -5,13 +5,11 @@ permalink: /alphabet/
 ---
 
 {% assign letters = "" | split: ',' %}
-{% assign authors = "" | split: ',' %}
 {% assign letter = "" | split: ',' %}
 {% assign letterPost = "" | split: ',' %}
 
 <!-- Aufbau der benutzten Buchstaben -->
 {% for post in site.posts %}
-    {% assign authors = authors | push: post.autor_nn %}
     {% assign letter = post.autor_nn | slice:0 %}
     {% assign letters = letters | push: letter | uniq %}
 {% endfor %}
@@ -24,11 +22,13 @@ permalink: /alphabet/
 <div class="post-category">
   {% for letter in letters %}
     
-    {% for post in site.posts %}
-        {% assign letterPost = post.author_nn | slice:0 %}
+    Buchstabe: {{ letter }} - 
     
-        letterPost: {{letterPost}}<br>
-        letter: {{letter}}<br>
+    {% for post in site.posts %}
+        {% assign letterPost = post.autor_nn | slice:0 %}
+    
+        letterPost: {{ letterPost }} mit Autor: {{ post.autor_nn }}<br>
+        letter: {{ letter }}<br>
         {% if letterPost == letter %}
                 {% assign sortedPosts = sortedPosts | push: post %}
                 Füge hinzu: {{post.author_nn}} <br>
@@ -44,9 +44,7 @@ permalink: /alphabet/
         <div class="collapsible-header active">
           <span class="capitalize" style="font-size: 18px;">{{ letter }}</span>
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ sortedPosts.size }}</span></a>
-        </div>
-          
-        
+        </div>        
 
         <div class="collapsible-body">
           {% for post in sortedPosts %}{% if post.title != null %}
