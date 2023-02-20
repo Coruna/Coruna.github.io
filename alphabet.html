@@ -9,6 +9,7 @@ permalink: /alphabet/
 {% assign letter = "" | split: ',' %}
 {% assign letterCount = "" | split: ',' %}
 
+<!-- Aufbau der benutzten Buchstaben -->
 {% for post in site.posts %}
     {% assign authors = authors | push: post.autor_nn %}
     {% assign letter = post.autor_nn | slice:0 %}
@@ -22,6 +23,9 @@ permalink: /alphabet/
 
 <div class="post-category">
   {% for letter in letters %}
+    
+    {% assign sortedPosts = site.posts | where_exp:"autor_nn","autor_nn | slice:0 == letter" | sort: 'title' %}
+   
     <a id="{{ letter }}" class="section scrollspy"></a>      <!-- TODO for position-->
 
     <ul class="collapsible" data-collapsible="expandable">
@@ -31,7 +35,7 @@ permalink: /alphabet/
           <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ site.categories[cate].size }}</span></a>
         </div>
           
-        {% assign sortedPosts = site.posts | where:"autor_nn","Mankell" | sort: 'title' %}
+        
 
         <div class="collapsible-body">
           {% for post in sortedPosts %}{% if post.title != null %}
