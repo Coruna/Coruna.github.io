@@ -9,34 +9,18 @@ permalink: /date/
   <button class="waves-effect waves-light btn" onClick="collapseAll();"><i class="mdi mdi-chevron-double-up left"></i>Collapse</button>
 </div>
 
-{% assign star_array = "" | split: ',' %}
-{% assign postArray5 = "" | split: ',' %}
-{% assign postArray4 = "" | split: ',' %}
-{% assign postArray3 = "" | split: ',' %}
-{% assign postArray2 = "" | split: ',' %}
-{% assign postArray1 = "" | split: ',' %}
+{% for post in site.posts %}
+  {% assign currentdate = post.date | date: "%Y" %}
+  {% if currentdate != date %}
+    {% unless forloop.first %}</ul>{% endunless %}
+    <h1 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h1>
+    <ul>
+    {% assign date = currentdate %}
+  {% endif %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% if forloop.last %}</ul>{% endif %}
+{% endfor %}
 
-
-
-{% capture categories %}
-  {% for post in site.posts.date %}{{ c | first }}{% unless forloop.last %},{% endunless %}{% endfor %}
-{% endcapture %}
-{% assign category_names = categories | strip | split:',' | sort %}
-
-  {% for post in site.posts %}
-    {% if post.bewertung != null %}
-      {% assign star_array = star_array | push: post.bewertung | uniq | sort | reverse %}
-
-        {% case post.bewertung %}
-          {% when 5 %}{% capture _ %}{% increment five %}{% endcapture %}{% assign postArray5 = postArray5 | push: post %}    
-          {% when 4 %}{% capture _ %}{% increment four %}{% endcapture %}{% assign postArray4 = postArray4 | push: post %}  
-          {% when 3 %}{% capture _ %}{% increment three %}{% endcapture %}{% assign postArray3 = postArray3 | push: post %}       
-          {% when 2 %}{% capture _ %}{% increment two %}{% endcapture %}{% assign postArray2 = postArray2 | push: post %}  
-          {% when 1 %}{% capture _ %}{% increment one %}{% endcapture %}{% assign postArray1 = postArray1 | push: post %}  
-        {% endcase %}
-
-    {% endif %}
-  {% endfor %}
         
 <div class="post-category">
   {% for star in star_array %}
