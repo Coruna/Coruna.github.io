@@ -32,12 +32,8 @@ permalink: /alphabet/
                 {% assign sortedPosts = sortedPosts | push: post %}
                 Füge hinzu: {{ post.author_nn }} <br>
         {% endif %}
-    {% endfor %}
-    
-    <!-- {% if page.title startswith 'Profile' %}This is a profile page.{% endif %}-->
-    
-    
-    <!--{% assign sortedPosts = site.posts | where_exp:"post","post.autor_nn == 'Mankell'" | sort: 'title' %}-->
+    {% endfor %}   
+
    
     <a id="{{ letter }}" class="section scrollspy"></a>      <!-- TODO for position-->
 
