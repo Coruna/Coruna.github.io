@@ -16,7 +16,7 @@ permalink: /date/
 {% for post in site.posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
-    {% assign years = years | push: currentdate | uniq | sort %}
+    {% assign years = years | push: currentdate | uniq | reverse %}
     {% assign date = currentdate %} 
   {% endif %}
 {% endfor %}
@@ -42,7 +42,7 @@ permalink: /date/
       <li>
         <div class="collapsible-header">
           <span class="capitalize" style="font-size: 18px;">{{ year }}</span>
-          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ years.size }}</span></a>
+          <a class="waves-circle btn-floating right waves-effect waves-green white"><span class="pink-text">{{ sortedPosts.size }}</span></a>
         </div>        
 
         <div class="collapsible-body">
