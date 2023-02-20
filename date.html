@@ -16,7 +16,7 @@ permalink: /date/
 {% for post in site.posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
-    {% assign years = years | push: currentdate | uniq | reverse %}
+    {% assign years = years | push: currentdate | uniq | sort:"date" %}
     {% assign date = currentdate %} 
   {% endif %}
 {% endfor %}
@@ -31,7 +31,7 @@ permalink: /date/
         {% assign yearPost = post.date | date: "%Y" %}
 
         {% if yearPost == year %}
-                {% assign sortedPosts = sortedPosts | push: post %}
+                {% assign sortedPosts = sortedPosts | push: post | sort %}
         {% endif %}
     {% endfor %} 
 
@@ -47,6 +47,7 @@ permalink: /date/
 
         <div class="collapsible-body">
           {% for post in sortedPosts %}{% if post.title != null %}
+          {% assign post.title = post.autor_nn | append: ' - ' | append: post.buchtitel %}
           <ul>
             <li>
               {{ post.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;>>&nbsp;&nbsp;<a class="category-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
