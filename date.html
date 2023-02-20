@@ -31,7 +31,7 @@ permalink: /date/
         {% assign yearPost = post.date | date: "%Y" %}
 
         {% if yearPost == year %}
-                {% assign sortedPosts = sortedPosts | push: post | sort %}
+                {% assign sortedPosts = sortedPosts | push: post | sort:"date" %}
         {% endif %}
     {% endfor %} 
 
