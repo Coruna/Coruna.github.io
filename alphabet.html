@@ -24,7 +24,17 @@ permalink: /alphabet/
 <div class="post-category">
   {% for letter in letters %}
     
-    {% assign sortedPosts = site.posts | where_exp:"post","post.autor_nn == 'Mankell'" | sort: 'title' %}
+    {% for post in site.posts %}
+        {% assign letterPost = post.author_nn | slice:0 %}
+    
+        letterPost: {{letterPost}}<br>
+        letter: {{letter}}<br>
+        {% if letterPost == letter %}
+                {% assign sortedPosts = sortedPosts | push: post %}
+        {% endif %}
+    {% endfor %}
+    
+    <!--{% assign sortedPosts = site.posts | where_exp:"post","post.autor_nn == 'Mankell'" | sort: 'title' %}-->
    
     <a id="{{ letter }}" class="section scrollspy"></a>      <!-- TODO for position-->
 
