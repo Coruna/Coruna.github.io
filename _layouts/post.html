@@ -11,7 +11,7 @@ layout: default
     <p class="grey-text">
       <i class="mdi mdi-calendar"></i>&nbsp;
       {% if page.date %}{{ page.date | date: "%b %-d, %Y" }}{% else %}unknown{% endif %}            
-      {% if page.verlag %}&nbsp;&nbsp;<i class="mdi mdi-book"></i>&nbsp;{{ page.verlag }}{% else %}{{ page.verlag }}{% endif %}
+      {% if page.verlag and page.jahr %}&nbsp;&nbsp;<i class="mdi mdi-book"></i>&nbsp;{{ page.verlag }}&nbsp; {{ page.jahr }}{% else %}{{ page.verlag }}{% endif %}
      
       &nbsp;&nbsp;<i class="mdi mdi-folder-multiple"></i>&nbsp;
       <span class="capitalize">
@@ -23,9 +23,11 @@ layout: default
       &emsp;<i class="mdi mdi-refresh"></i>&nbsp;UPDATE: {% if page.update %}{{ page.update | date: "%b %-d, %Y" }}{% else %}{{ page.last_modified_at | date: "%b %-d, %Y" }}{% endif %}
       -->
       </p>
+    
+    {% assign ueberschrift = post.autor_nn | append: ', ' | append: post.autor_vn |  append: ' - ' | append: post.buchtitel %}
 
     <div class="post-header">
-      <h1 class="post-title">{{ page.title }}</h1>  
+      <h1 class="post-title">{{ ueberschrift }}</h1>  
           {% if page.bewertung %}
             <div>
              {% for i in (1..5) %}       
