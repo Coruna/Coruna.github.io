@@ -10,10 +10,10 @@ baseurl: ""    # the subpath of your site, "/blog"
 url: ""
 
 # footer 
-description: "I know that what I'm doing looks stupid, but I'm a big boy and really want to do this."
+# description: "I know that what I'm doing looks stupid, but I'm a big boy and really want to do this."
 
-favo: "Rezensionen everywhere"
-descrpt: "Hier findet ihr meine Rezensionen"
+favo: "Über diese Seite"
+descrpt: "Hier findet ihr meine Rezensionen zu Büchern, die ich gelesen habe. Die Seite ist tatsächlich eher für mich selber gedacht, damit ich meinen Lesekonsum im Blick behalte. Vielleicht ist es aber ja auch für dich interessant. "
 
 
 #
