@@ -6,7 +6,9 @@ permalink: /bewertung/
 
 {% assign starsDesc = "5,4,3,2,1" | split: ", " %}
 
+
 {% for number in starsDesc %}
+  {% assign number = number | plus:0 %}
   {% for i in (1..5) %}       
      {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
      {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
