@@ -6,7 +6,7 @@ permalink: /bewertung/
 
 <div>Bedeutung der Bewertung:</div>
 
-<div>
+<div class="post-section">
   {% assign number = 5 %}
   {% for i in (1..5) %}  
      {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
@@ -24,7 +24,6 @@ permalink: /bewertung/
   {% endfor %}
 Gut, Kleinigkeiten haben mich gestört</div>
 
-
 <div>
   {% assign number = 3 %}
   {% for i in (1..5) %}  
@@ -33,6 +32,24 @@ Gut, Kleinigkeiten haben mich gestört</div>
      {% endif %}   
   {% endfor %}
 Ganz ok, wenn man sonst nichts anderes hat</div>
+
+<div>
+  {% assign number = 2 %}
+  {% for i in (1..5) %}  
+     {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
+     {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
+     {% endif %}   
+  {% endfor %}
+Naja, eher für Fans</div>
+
+<div>
+  {% assign number = 1 %}
+  {% for i in (1..5) %}  
+     {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
+     {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
+     {% endif %}   
+  {% endfor %}
+Muss echt nicht sein</div>
 
 <div><style>button { margin-bottom: 10px; }</style>
   <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
