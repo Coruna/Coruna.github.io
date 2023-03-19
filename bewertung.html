@@ -6,25 +6,23 @@ permalink: /bewertung/
 
 <div>Bedeutung der Bewertung:</div>
 
+<div>
   {% assign number = 5 %}
   {% for i in (1..5) %}  
-      <div>
      {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
      {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
      {% endif %}   
-      </div>       
   {% endfor %}
-  <div>Unbedingt lesenswert!</div>
+  Unbedingt lesenswert!</div>
 
+<div>
   {% assign number = 4 %}
   {% for i in (1..5) %}  
-      <div>
      {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
      {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
      {% endif %}   
-      </div>       
   {% endfor %}
-  <div>Gut, Kleinigkeiten haben mich gestört</div>
+Gut, Kleinigkeiten haben mich gestört</div>
 
 <div><style>button { margin-bottom: 10px; }</style>
   <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
