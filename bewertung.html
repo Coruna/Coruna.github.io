@@ -4,11 +4,9 @@ title: Nach Bewertung
 permalink: /bewertung/
 ---
 
-{% assign starsDesc = "5,4,3,2,1" | split: ", " %}
+<div>Bedeutung der Bewertung:</div>
 
-<div>Bedeutung</div>
-{% for numbers in starsDesc %}
-  {% assign number = numbers | plus:0 %}
+  {% assign number = 5 %}
   {% for i in (1..5) %}  
       <div>
      {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
@@ -16,9 +14,17 @@ permalink: /bewertung/
      {% endif %}   
       </div>       
   {% endfor %}
-<div>Beschreibung {{number}} </div>
+  <div>Unbedingt lesenswert!</div>
 
-{% endfor %}
+  {% assign number = 4 %}
+  {% for i in (1..5) %}  
+      <div>
+     {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
+     {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
+     {% endif %}   
+      </div>       
+  {% endfor %}
+  <div>Gut, Kleinigkeiten haben mich gestört</div>
 
 <div><style>button { margin-bottom: 10px; }</style>
   <button class="waves-effect waves-light btn" onClick="expandAll();"><i class="mdi mdi-chevron-double-down left"></i>Expand</button>
