@@ -9,12 +9,15 @@ permalink: /bewertung/
 <div>Bedeutung</div>
 {% for numbers in starsDesc %}
   {% assign number = numbers | plus:0 %}
-  {% for i in (1..5) %}       
+  {% for i in (1..5) %}  
+      <div>
      {% if i <= number %}<i class="post-tag mdi mdi-star waves-effect waves-light"></i>
      {% else %}<i class="post-tag mdi mdi-star-outline waves-effect waves-light"></i>
-      {% endif %}    
+     {% endif %}   
+      </div>       
   {% endfor %}
-<br>
+<div>Beschreibung {{number}} </div>
+
 {% endfor %}
 
 <div><style>button { margin-bottom: 10px; }</style>
