@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [thriller]
-tags: [spannend,schweden,"kurt wallander",wallander]
+tags: [spannend,schweden,"kurt wallander"]
 autor_vn: Henning
 autor_nn: Mankell
 buchtitel: die fünfte Frau
