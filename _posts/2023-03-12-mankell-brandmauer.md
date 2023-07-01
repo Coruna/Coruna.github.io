@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [thriller,krimi]
-tags: [schweden,"kurt wallander",wallander]
+tags: [schweden,"kurt wallander"]
 autor_vn: Henning
 autor_nn: Mankell
 buchtitel: die Brandmauer
