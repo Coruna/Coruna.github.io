@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [thriller]
-tags: [norwegen,spannend]
+tags: [norwegen,spannend,"harry hole"]
 autor_vn: Jo
 autor_nn: Nesbø
 buchtitel: Messer
