@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [roman,thriller]
-tags: [schweden,wallander,"kurt wallander"]
+tags: [schweden,"kurt wallander"]
 autor_vn: Henning
 autor_nn: Mankell
 buchtitel: Die weiße Löwin
