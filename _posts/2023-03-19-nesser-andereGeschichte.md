@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [thriller,roman,krimi]
-tags: [schweden,barbarotti,"gunnar barbarotti"]
+tags: [schweden,"gunnar barbarotti"]
 autor_vn: Håkan
 autor_nn: Nesser
 buchtitel: Eine ganz andere Geschichte
