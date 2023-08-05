@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [roman,krimi]
+categories: [roman,thriller]
 tags: []
 autor_vn: Monika
 autor_nn: Geier
