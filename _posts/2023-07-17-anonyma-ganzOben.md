@@ -2,8 +2,8 @@
 layout: post
 categories: [sachbuch]
 tags: [führung,management,feministisch,"wahre geschichte"]
-autor_vn: Anonyma
-autor_nn: 
+autor_vn: 
+autor_nn: Anonyma
 buchtitel: Ganz oben
 subtitel: Aus dem Leben einer weiblichen Führungskraft
 bewertung: 4
