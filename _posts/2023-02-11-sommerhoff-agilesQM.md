@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [sachbuch,pocket]
+categories: [fachbuch,pocket]
 tags: [management,qualität]
 autor_vn: Benedikt
 autor_nn: Sommerhoff et al.
