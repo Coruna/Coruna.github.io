@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [thriller,roman,krimi]
+categories: [thriller,roman]
 tags: [schweden,"gunnar barbarotti"]
 autor_vn: Håkan
 autor_nn: Nesser
