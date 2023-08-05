@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [thriller,krimi]
+categories: [thriller]
 tags: [schweden,"kurt wallander"]
 autor_vn: Henning
 autor_nn: Mankell
