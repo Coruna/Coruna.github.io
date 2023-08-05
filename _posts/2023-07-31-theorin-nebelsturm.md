@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [roman,krimi]
+categories: [roman]
 tags: [schweden]
 autor_vn: Johan
 autor_nn: Theorin
