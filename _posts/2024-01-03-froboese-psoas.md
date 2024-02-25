@@ -5,7 +5,7 @@ tags: [gesundheit,training]
 autor_vn: Ingo
 autor_nn: Froböse
 buchtitel: Das neue Psoas Training
-subtitel: Schmerzfrei, leistungsfähig und beweglich: Die besten Übungen für den großen Lendenmuskel
+subtitel: Schmerzfrei, leistungsfähig und beweglich - Die besten Übungen für den großen Lendenmuskel
 bewertung: 4
 verlag: südwest
 jahr: 2017
