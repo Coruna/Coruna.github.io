@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [sachbuch,dokumentation]
-tags: ["wahre geschichte",politik,weltgeschehen]
+tags: ["wahre geschichte",politik,weltgeschehen,reisen]
 autor_vn: Jürgen
 autor_nn: Todenhöfer
 buchtitel: Inside IS
