@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [sci-fi,kurzgeschichten]
-tags: [weltraum,zeitreisen,aliens]
+tags: [weltraum,zeitreisen,aliens,englischsprachig]
 autor_vn: Mike
 autor_nn: Ashley
 buchtitel: The mammoth book of Extreme Science Fiction
