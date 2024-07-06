@@ -6,7 +6,7 @@ autor_vn: Erich
 autor_nn: Kästner
 buchtitel: Der Gang vor die Hunde
 subtitel:
-bewertung: 2
+bewertung: 1
 verlag: Atrium
 jahr: 2018
 ---
